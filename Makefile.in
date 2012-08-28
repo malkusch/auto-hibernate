@@ -21,7 +21,8 @@ $(distdir).tar.xz: $(distdir)
 
 $(distdir):
 	mkdir -p $(distdir)/src
-	cp Makefile $(distdir)
+	autoconf
+	cp configure Makefile.in $(distdir)
 	cp src/* $(distdir)/src
 
 FORCE:
