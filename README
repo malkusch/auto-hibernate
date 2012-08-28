@@ -1,0 +1,14 @@
+auto-hibernate checks periodically if this computer should go to hibernation.
+You should run auto-hibernate periodically as cron job.
+The conditions are:
+
+-Does a screen process exist
+
+-Is a samba share accessed
+
+-Is a user logged
+
+If all these preconditions are false for the last 30 Minutes the machine goes
+into hibernation.
+
+You can wake the machine up by sending a magic wol packet.

@@ -1,0 +1,3 @@
+# try to hibernate every 5 minutes
+*/5 *  * * *	root	/usr/sbin/auto-hibernate.sh
+

@@ -1,0 +1,9 @@
+for installation run
+
+./configure
+make
+make install
+
+for uninstallation run
+
+make uninstall

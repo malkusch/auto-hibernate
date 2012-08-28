@@ -1,0 +1,43 @@
+# @configure_input@
+
+package = @PACKAGE_NAME@
+version = @PACKAGE_VERSION@
+tarname = @PACKAGE_TARNAME@
+distdir = $(tarname)-$(version)
+
+export prefix      = @prefix@
+export exec_prefix = @exec_prefix@
+export sbindir     = @sbindir@
+export sysconfdir  = @sysconfdir@
+
+all clean install uninstall auto-hibernate:
+	$(MAKE) -C src $@
+
+dist: $(distdir).tar.xz
+
+$(distdir).tar.xz: $(distdir)
+	tar ch $(distdir) | xz -9 > $(distdir).tar.xz
+	rm -rf $(distdir)
+
+$(distdir):
+	mkdir -p $(distdir)/src
+	cp Makefile $(distdir)
+	cp src/* $(distdir)/src
+
+FORCE:
+	-rm $(distdir).tar.xz &> /dev/null
+	-rm -rf $(distdir) &> /dev/null
+
+distcheck: $(distdir).tar.xz
+	unxz $+ | tar -x
+	$(MAKE) -C (distfir) all clean
+	rm -rf $(distdir)
+
+Makefile: Makefile.in config.status
+	./config.status $@
+
+config.status: configure
+	./config.status --recheck
+
+.PHONY: FORCE all clean dist distcheck
+.PHONY: install uninstall
