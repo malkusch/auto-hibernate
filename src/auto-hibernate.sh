@@ -17,7 +17,7 @@ mkdir $LOCKFILE || exit 1
 set +e
 
 # no screen sessions
-sessions=$(ps a | grep screen | grep -v "grep" | wc -l)
+sessions=$(ps -A | grep screen | grep -v "grep" | wc -l)
 if [ ! $sessions = 0 ]; then
 	$LOGGER "screen prevents hibernation"
 	cleanup
