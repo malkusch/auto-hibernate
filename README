@@ -6,7 +6,7 @@ The conditions are:
 
 -Is a network connection established?
 
--Is a user logged?
+-Is a user logged in?
 
 If all these preconditions are false for the last 30 Minutes the machine goes
 into hibernation.
