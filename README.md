@@ -2,7 +2,11 @@ auto-hibernate
 ==============
 
 Auto-hibernate checks periodically if this machine should hibernate.
-You should run auto-hibernate periodically as a cron job.
+You should run `auto-hibernate` periodically as a cron job:
+
+    # try to hibernate every 5 minutes
+    */5 *  * * *    root    /usr/sbin/auto-hibernate.sh
+
 The conditions are:
 
 * Does a screen process exist?
