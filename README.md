@@ -20,22 +20,18 @@ Wake on LAN
 ===========
 
 You can wake up the machine with Wake On LAN. The tool **wol**
-sends the required magic packet. In some situations sending a
-magic packet isn't necessary. Some devices support wake up on
-a unicast packet. Check out which wake up methods your device
-supports:
+sends the required magic packet. Check out which wake up methods
+your device supports:
 
     # ethtool eth0
     [..]
     Supports Wake-on: pumbg
-    Wake-on: ug
 
-Use `ethtool -s eth0 wol ug` to enable Wake on unicast (*u*) and
-wake on MagicPacket (*g*).
+Use `ethtool -s eth0 wol g` to enable Wake on MagicPacket (*g*):
 
-With wake up on unicast, any direct packet (like a simple ping) would
-wake up this machine. Of course this packet can only be routed if
-the MAC address is already in your local ARP cache.
+    # ethtool eth0
+    [..]
+    Wake-on: g
 
 For more information about the supported Wake up methods see
-`man wol`.
+`man ethtool`.
