@@ -35,3 +35,13 @@ Use `ethtool -s eth0 wol g` to enable Wake on MagicPacket (*g*):
 
 For more information about the supported Wake up methods see
 `man ethtool`.
+
+
+# License and author
+
+Markus Malkusch <markus@malkusch.de> is the author of this project. This project is free and under the WTFPL.
+
+## Donations
+
+If you like this project and feel generous donate a few Bitcoins here:
+[1335STSwu9hST4vcMRppEPgENMHD2r1REK](bitcoin:1335STSwu9hST4vcMRppEPgENMHD2r1REK)
